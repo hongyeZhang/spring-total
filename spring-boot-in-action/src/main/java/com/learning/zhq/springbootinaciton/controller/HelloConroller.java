@@ -1,5 +1,8 @@
 package com.learning.zhq.springbootinaciton.controller;
 
+import com.learning.zhq.springbootinaciton.exception.WebException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,12 +14,27 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 public class HelloConroller {
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @RequestMapping(value = "/hello1")
     public String hello1() {
+
+        try {
+            logger.info("enter the method");
+            if (logger.isDebugEnabled()) {
+                logger.debug("debug level logback");
+            }
+            if (true) {
+                throw new WebException("web exception");
+            }
+        } catch (WebException e) {
+            logger.error("web exception, =" + e);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return "hello1";
     }
-
 
     @RequestMapping(value = "/hello2.do")
     public String hello2() {
