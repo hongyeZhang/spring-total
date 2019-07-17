@@ -46,4 +46,16 @@ public class HelloConroller {
         return "hello3";
     }
 
+
+    @RequestMapping(value = "/log1")
+    public String logTest1() {
+        logger.trace("hello controller ======trace");
+        logger.debug("hello controller ======debug");
+        logger.info("hello controller ======info");
+        logger.warn("hello controller ======warn");
+        logger.error("hello controller =====error");
+
+        return "success";
+    }
+
 }

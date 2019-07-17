@@ -3,7 +3,6 @@
     <property name="LOG_HOME" value="D://log"/>
     <property name="LOG_PREFIX" value="spring-boot-demo"/>
 
-    <!--<include resource="org/spoon/msa/logging/logback/defaults.xml"/>-->
 
     <!-- 控制台输出 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
